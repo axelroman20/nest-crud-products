@@ -42,7 +42,6 @@ export class FilesController {
     @UploadedFile(new ParseFilePipe())
     file: Express.Multer.File,
   ) {
-    const secureUrl = `http://localhost:3000/api/files/product/${file.filename}`;
-    return secureUrl;
+    return this.filesService.getSecureImageUrl(file.filename);
   }
 }
