@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Product {
@@ -8,7 +8,7 @@ export class Product {
   @Column('text', { unique: true })
   title: string;
 
-  @Column('numeric', { default: 0 })
+  @Column('float', { default: 0 })
   price: number;
 
   @Column('text', { nullable: true })
@@ -21,7 +21,7 @@ export class Product {
   stock: number;
 
   @Column('text', { array: true })
-  size: string[];
+  sizes: string[];
 
   @Column('text')
   gender: string;
@@ -29,4 +29,18 @@ export class Product {
   //TODO: add relations
   // tags
   // images
+
+  @BeforeInsert()
+  checkSlug() {
+    if (!this.slug) {
+      this.slug = this.title;
+    }
+    this.slug = this.slug
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '_')
+      .replace(/^_+|_+$/g, '')
+      .trim();
+  }
 }
