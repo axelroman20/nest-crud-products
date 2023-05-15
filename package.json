@@ -32,7 +32,8 @@
     "reflect-metadata": "^0.1.13",
     "remove-accents": "^0.4.4",
     "rxjs": "^7.2.0",
-    "typeorm": "^0.3.16"
+    "typeorm": "^0.3.16",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
