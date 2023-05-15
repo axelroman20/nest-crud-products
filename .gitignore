@@ -1,6 +1,5 @@
 .env
 postgres/
-uploads/
 
 # compiled output
 /dist
