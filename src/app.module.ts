@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
-import { CommonModule } from './common/common.module';
 import { FilesModule } from './files/files.module';
 import { ProductsModule } from './products/products.module';
 import { SeedModule } from './seed/seed.module';
@@ -21,7 +20,6 @@ import { SeedModule } from './seed/seed.module';
       synchronize: true,
     }),
     ProductsModule,
-    CommonModule,
     SeedModule,
     FilesModule,
     AuthModule,
