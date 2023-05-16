@@ -17,7 +17,7 @@ export class FilesService {
 
   getSecureImageUrl(imageName: string) {
     const baseUrl = this.configService.get('HOST_API');
-    const secureUrl = `${baseUrl}/files/product/${imageName}`;
+    const secureUrl = `${baseUrl}/api/files/product/${imageName}`;
     return secureUrl;
   }
 }
